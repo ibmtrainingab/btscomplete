@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.ibm.Entity.Project;
 
-public interface BugRepository extends MongoRepository<Project, String> {
+public interface ProjectRepository extends MongoRepository<Project, String> {
 
 }

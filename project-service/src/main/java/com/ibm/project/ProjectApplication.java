@@ -1,14 +1,14 @@
-package com.ibm.BugTracking;
+package com.ibm.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 
-public class BugTrackingApplication {
+public class ProjectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BugTrackingApplication.class, args);
+		SpringApplication.run(ProjectApplication.class, args);
 
 	}
 
