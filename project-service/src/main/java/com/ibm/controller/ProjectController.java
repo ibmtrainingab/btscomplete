@@ -1,13 +1,15 @@
-package com.ibm.demo.controller;
+package com.ibm.controller;
+
+import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
-import com.ibm.Entity;
-import com.ibm.service;
 import com.ibm.Entity.Project;
 import com.ibm.service.ProjectService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,30 +20,38 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ProjectController {
+	
+	ProjectService projectService;
 	@PostMapping("/project")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	String createProject(@Valid Project project, BindingResult bindingResult) {
 		validateModel(bindingResult);
 		System.out.println(project);
-		return ProjectService.createProject(project); 
+		return projectService.createProject(project); 
 	}
+	
+	private void validateModel(Errors bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new IllegalArgumentException("Something went wrong, please retry!");
+		}
+	}
+	
 
 	@GetMapping("/project")
-	List<project> getprojects() {
-		System.out.println(ProjectService.hashCode());
-		return ProjectService.getProject();
+	List<Project> getprojects() {
+		return projectService.getProjects();
 	}
 	
 	@GetMapping("/project/{id}")
-	Optional<project> getProject(@PathVariable("id") int Id) {
-		return ProjectService.getProject(Id);
+	Optional<Project> getProject(@PathVariable("id") String Id) {
+		return projectService.getProject(Id);
 	}
 
 	@PutMapping("/project/{id}")
-	void updateProject(@Valid Project project, BindingResult bindingResult, @PathVariable("id") int Id) {
+	void updateProject(@Valid Project project, BindingResult bindingResult, @PathVariable("id") String Id) {
 		validateModel(bindingResult);
-		System.out.println(Id);
+		//System.out.println(Id);
 		project.setId(Id);
-		ProjectService.updateProject(project);
+		projectService.updateProject(project);
 	}
 }
