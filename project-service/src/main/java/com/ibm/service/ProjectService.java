@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+//import org.springframework.transaction.annotation.Transactional;
 
 import com.ibm.Entity.Project;
 import com.ibm.repo.ProjectRepository;
@@ -13,7 +14,7 @@ import com.ibm.repo.ProjectRepository;
 public class ProjectService {
 	@Autowired
 	ProjectRepository projectRepository;
-
+	//@Transactional
 	public String createProject(Project project) {
 		Project saveProject = projectRepository.save(project);
 		return saveProject.getId();
