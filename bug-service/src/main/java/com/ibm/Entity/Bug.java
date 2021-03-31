@@ -4,12 +4,15 @@ import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
 
 public class Bug {
 	@Id
 	private String id;
+	@Size(min=5, max=15)
+	@NotBlank
 	private String description;
 	@NotNull
 	@NotBlank
