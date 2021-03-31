@@ -11,27 +11,24 @@ import org.springframework.data.annotation.Id;
 public class Bug {
 	@Id
 	private String id;
-<<<<<<< HEAD
-	@Size(min=5, max=15)
-	@NotBlank
-=======
-	//@Size(min = 5, max = 100)
->>>>>>> 99763458bab8f1982acbd109d51e6329772da0fb
+
+	//@Size(min = 5, max = 15)
+	// @NotBlank
 	private String description;
-	//@NotNull
-	//@NotBlank
+	// @NotNull
+	// @NotBlank
 	private STATUS status;
-	//@NotNull
+	// @NotNull
 	private Date submittedOn;
-	//@NotNull
+	// @NotNull
 	private String name;
 	private String module;
-	//@NotNull
+	// @NotNull
 	private String projectId;
 	private PRIORITY priority;
 	private SEVERITY severity;
 	private TYPE type;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -56,8 +53,6 @@ public class Bug {
 		this.projectId = projectId;
 	}
 
-	
-
 	public String getId() {
 		return id;
 	}
@@ -73,8 +68,6 @@ public class Bug {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	
 
 	public Date getSubmittedOn() {
 		return submittedOn;
@@ -115,6 +108,5 @@ public class Bug {
 	public void setType(TYPE type) {
 		this.type = type;
 	}
-
 
 }
