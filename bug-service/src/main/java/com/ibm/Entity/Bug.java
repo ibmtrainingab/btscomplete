@@ -18,15 +18,15 @@ public class Bug {
 	//@Size(min = 5, max = 100)
 >>>>>>> 99763458bab8f1982acbd109d51e6329772da0fb
 	private String description;
-	@NotNull
-	@NotBlank
+	//@NotNull
+	//@NotBlank
 	private STATUS status;
-	@NotNull
+	//@NotNull
 	private Date submittedOn;
-	@NotNull
+	//@NotNull
 	private String name;
 	private String module;
-	@NotNull
+	//@NotNull
 	private String projectId;
 	private PRIORITY priority;
 	private SEVERITY severity;
