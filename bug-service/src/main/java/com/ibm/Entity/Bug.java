@@ -14,7 +14,6 @@ public class Bug {
 	@Size(min = 5, max = 100)
 	private String description;
 	@NotNull
-	//@NotBlank
 	private STATUS status;
 	 @NotNull
 	private Date submittedOn;
