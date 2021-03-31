@@ -16,6 +16,46 @@ public class Bug {
 	private String status;
 	@NotNull
 	private Date submittedOn;
+	@NotNull
+	private String name;
+	private String module;
+	@NotNull
+	private String projectId;
+	private String priority;
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getModule() {
+		return module;
+	}
+
+	public void setModule(String module) {
+		this.module = module;
+	}
+
+	public String getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
+	
 
 	public String getId() {
 		return id;
