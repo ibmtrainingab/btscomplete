@@ -13,15 +13,15 @@ public class Bug {
 	private String id;
 	//@Size(min = 5, max = 100)
 	private String description;
-	@NotNull
-	@NotBlank
+	//@NotNull
+	//@NotBlank
 	private STATUS status;
-	@NotNull
+	//@NotNull
 	private Date submittedOn;
-	@NotNull
+	//@NotNull
 	private String name;
 	private String module;
-	@NotNull
+	//@NotNull
 	private String projectId;
 	private PRIORITY priority;
 	private SEVERITY severity;
