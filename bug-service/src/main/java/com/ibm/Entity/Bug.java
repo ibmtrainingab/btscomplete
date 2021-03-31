@@ -11,19 +11,10 @@ import org.springframework.data.annotation.Id;
 public class Bug {
 	@Id
 	private String id;
-<<<<<<< HEAD
 	@Size(min = 5, max = 100)
 	private String description;
 	@NotNull
 	//@NotBlank
-=======
-
-	//@Size(min = 5, max = 15)
-	// @NotBlank
-	private String description;
-	// @NotNull
-	// @NotBlank
->>>>>>> refs/remotes/origin/dev
 	private STATUS status;
 	// @NotNull
 	private Date submittedOn;
