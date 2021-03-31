@@ -11,12 +11,16 @@ import org.springframework.data.annotation.Id;
 public class Bug {
 	@Id
 	private String id;
+<<<<<<< HEAD
 	@Size(min=5, max=15)
 	@NotBlank
+=======
+	//@Size(min = 5, max = 100)
+>>>>>>> 99763458bab8f1982acbd109d51e6329772da0fb
 	private String description;
 	@NotNull
 	@NotBlank
-	private String status;
+	private STATUS status;
 	@NotNull
 	private Date submittedOn;
 	@NotNull
@@ -24,7 +28,9 @@ public class Bug {
 	private String module;
 	@NotNull
 	private String projectId;
-	private String priority;
+	private PRIORITY priority;
+	private SEVERITY severity;
+	private TYPE type;
 	
 	public String getName() {
 		return name;
@@ -50,14 +56,6 @@ public class Bug {
 		this.projectId = projectId;
 	}
 
-	public String getPriority() {
-		return priority;
-	}
-
-	public void setPriority(String priority) {
-		this.priority = priority;
-	}
-
 	
 
 	public String getId() {
@@ -76,13 +74,7 @@ public class Bug {
 		this.description = description;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
+	
 
 	public Date getSubmittedOn() {
 		return submittedOn;
@@ -90,6 +82,38 @@ public class Bug {
 
 	public void setSubmittedOn(Date submittedOn) {
 		this.submittedOn = submittedOn;
+	}
+
+	public STATUS getStatus() {
+		return status;
+	}
+
+	public void setStatus(STATUS status) {
+		this.status = status;
+	}
+
+	public PRIORITY getPriority() {
+		return priority;
+	}
+
+	public void setPriority(PRIORITY priority) {
+		this.priority = priority;
+	}
+
+	public SEVERITY getSeverity() {
+		return severity;
+	}
+
+	public void setSeverity(SEVERITY severity) {
+		this.severity = severity;
+	}
+
+	public TYPE getType() {
+		return type;
+	}
+
+	public void setType(TYPE type) {
+		this.type = type;
 	}
 
 
