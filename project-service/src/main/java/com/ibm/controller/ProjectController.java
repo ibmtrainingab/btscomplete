@@ -45,12 +45,12 @@ public class ProjectController {
 	}
 	
 	@GetMapping("/project/{id}")
-	Optional<Project> getProject(@PathVariable("id") String Id) {
+	Optional<Project> getProject(@RequestBody @PathVariable("id") String Id) {
 		return projectService.getProject(Id);
 	}
 
 	@PutMapping("/project/{id}")
-	void updateProject(@Valid Project project, BindingResult bindingResult, @PathVariable("id") String Id) {
+	void updateProject(@RequestBody @Valid Project project, BindingResult bindingResult, @PathVariable("id") String Id) {
 		validateModel(bindingResult);
 		//System.out.println(Id);
 		project.setId(Id);
