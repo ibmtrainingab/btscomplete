@@ -1,5 +1,9 @@
 package com.ibm.repo;
 
-public interface BugRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.ibm.Entity.Bug;
+
+public interface BugRepository extends MongoRepository<Bug, String> {
 
 }
