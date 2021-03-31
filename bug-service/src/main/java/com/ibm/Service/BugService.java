@@ -32,9 +32,4 @@ public class BugService {
 		bugRepository.save(bug);
 	}
 
-	public void deleteBug(String id) {
-
-		bugRepository.deleteById(id);
-	}
-
 }
