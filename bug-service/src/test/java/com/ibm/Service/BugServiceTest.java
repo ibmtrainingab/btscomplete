@@ -19,8 +19,8 @@ class BugServiceTest {
 		assertNotNull(bugId);
 	}
 
-//	@Test
-	//void testGetBugs() {
+//@Test
+//void testGetBugs() {
 		//fail("Not yet implemented");
 	//}
 
