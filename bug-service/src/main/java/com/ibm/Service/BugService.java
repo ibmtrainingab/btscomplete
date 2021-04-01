@@ -3,10 +3,13 @@ package com.ibm.Service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ibm.Entity.Bug;
+import com.ibm.Entity.STATUS;
 import com.ibm.repo.BugRepository;
 
 @Service
@@ -35,9 +38,9 @@ public class BugService {
 		return bugRepository.findById(id);
 	}
 
-	public void updateBug(Bug bug) {
-
+	public STATUS updateBugStatus(@Valid Bug bug) {
 		bugRepository.save(bug);
+		return bug.getStatus();
 	}
 
 }

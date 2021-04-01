@@ -89,10 +89,10 @@ public class BugController {
 	 */
 
 	@PutMapping("/bug/{id}")
-	void updateBug(@RequestBody @Valid Bug bug, @PathVariable("id") String bugId, BindingResult bindingResult) {
+	void updateBugStatus(@RequestBody @Valid Bug bug, @PathVariable("id") String bugId, BindingResult bindingResult) {
 		validateModel(bindingResult);
 		bug.setId(bugId);
-		bugService.updateBug(bug);
+		bugService.updateBugStatus(bug);
 
 	}
 

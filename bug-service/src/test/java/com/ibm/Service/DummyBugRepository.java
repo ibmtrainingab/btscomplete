@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import com.ibm.Entity.Bug;
+import com.ibm.Entity.STATUS;
 import com.ibm.repo.BugRepository;
 
 public class DummyBugRepository implements BugRepository {
@@ -34,6 +35,7 @@ public class DummyBugRepository implements BugRepository {
 	@Override
 	public Bug save(Bug bug) {
 		bug.setId("24398t84gb32oi");
+		bug.setStatus(STATUS.VERIFIED);
 		return bug;
 	}
 
