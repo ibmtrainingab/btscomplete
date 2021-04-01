@@ -14,6 +14,14 @@ public class BugService {
 	@Autowired
 	BugRepository bugRepository;
 
+	public BugRepository getBugRepository() {
+		return bugRepository;
+	}
+
+	public void setBugRepository(BugRepository bugRepository) {
+		this.bugRepository = bugRepository;
+	}
+
 	public String createBug(Bug bug) {
 		Bug savedBug = bugRepository.save(bug);
 		return savedBug.getId();
