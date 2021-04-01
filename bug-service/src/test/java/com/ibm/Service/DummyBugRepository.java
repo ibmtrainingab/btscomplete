@@ -30,6 +30,12 @@ public class DummyBugRepository implements BugRepository {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public Bug save(Bug bug) {
+		bug.setId("24398t84gb32oi");
+		return bug;
+	}
 
 	@Override
 	public <S extends Bug> S insert(S entity) {
@@ -61,11 +67,11 @@ public class DummyBugRepository implements BugRepository {
 		return null;
 	}
 
-	@Override
-	public <S extends Bug> S save(S entity) {
+	//@Override
+	//public <S extends Bug> S save(S entity) {
 		// TODO Auto-generated method stub
-		return null;
-	}
+	//	return null;
+	//}
 
 	@Override
 	public Optional<Bug> findById(String id) {
