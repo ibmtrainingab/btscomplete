@@ -41,8 +41,9 @@
 		promise.then(function(data){
 			console.log(data);
 		});
-		promise.catch(errorHandler);
-		alert("Bug has been created!");
+		promise.catch(function(error){
+			console.log(error);
+		});
 	}
 </script>
 <body>
@@ -80,12 +81,13 @@
 				</div>
 				<div class="col-6">
 					<select id="Status">
-						<option value="option1">NEW</option>
-						<option value="option2">ASSIGNED</option>
-						<option value="option3">OPEN</option>
-						<option value="option4">FINISHED</option>
-						<option value="option4">NOT_A_BUG</option>
-						<option value="option4">DEFERRED</option>
+						<option value="NEW">NEW</option>
+						<option value="ASSIGNED">ASSIGNED</option>
+						<option value="OPEN">OPEN</option>
+						<option value="CLOSED">CLOSED</option>
+						<option value="VERIFIED">VERIFIED</option>
+						<option value="DEFERRED">DEFERRED</option>
+						<option value="NOT_A_BUG">NOT_A_BUG</option>
 					</select>
 				</div>
 			</div>
@@ -95,9 +97,9 @@
 				</div>
 				<div class="col-6">
 					<select id="Priority">
-						<option value="option1">HIGH</option>
-						<option value="option2">MEDIUM</option>
-						<option value="option3">LOW</option>
+						<option value="HIGH">HIGH</option>
+						<option value="MEDIUM">MEDIUM</option>
+						<option value="LOW">LOW</option>
 					</select>
 				</div>
 			</div>
@@ -131,10 +133,10 @@
 				</div>
 				<div class="col-6">
 					<select id="type">
-						<option value="option1">OPERATIONAL</option>
-						<option value="option2">FUNCTIONAL</option>
-						<option value="option3">RUNTIME</option>
-						<option value="option3">LOOP</option>
+						<option value="OPERATIONAL">OPERATIONAL</option>
+						<option value="FUNCTIONAL">FUNCTIONAL</option>
+						<option value="RUNTIME">RUNTIME</option>
+						<option value="LOOP">LOOP</option>
 					</select>
 				</div>
 
