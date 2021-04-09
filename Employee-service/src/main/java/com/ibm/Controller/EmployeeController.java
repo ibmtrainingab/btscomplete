@@ -2,6 +2,8 @@ package com.ibm.Controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.validation.Valid;
 
@@ -26,11 +28,19 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 
+	Logger logger = Logger.getLogger(EmployeeController.class.getName());
+	/**
+	 * method for creating employees
+	 * @param employee
+	 * @param bindingresult
+	 * @return
+	 */
+
 	@PostMapping("/employee")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	String createEmployee(@RequestBody @Valid Employee employee, BindingResult bindingresult) {
 		validateModel(bindingresult);
-		System.out.println(employee);
+		logger.log(Level.WARNING, "Employee created successfully");
 		return employeeService.createEmployee(employee);
 	}
 
@@ -40,16 +50,33 @@ public class EmployeeController {
 		}
 
 	}
+	/**
+	 * method for getting employee records
+	 * @return
+	 */
 
 	@GetMapping("/employee")
 	List<Employee> getEmployees() {
 		return employeeService.getEmployees();
 	}
+	
+	/**
+	 * method for getting single record by id
+	 * @param Id
+	 * @return
+	 */
 
 	@GetMapping("/employee/{id}")
 	Optional<Employee> getEmployee(@RequestBody @PathVariable("id") String Id) {
 		return employeeService.getEmployee(Id);
 	}
+	
+	/**
+	 * method for updating employee details
+	 * @param employee
+	 * @param bindingresult
+	 * @param Id
+	 */
 
 	@PutMapping("/employee/{id}")
 	void updateEmployee(@RequestBody @Valid Employee employee, BindingResult bindingresult,
@@ -59,11 +86,15 @@ public class EmployeeController {
 		employeeService.updateEmployee(employee);
 
 	}
+	
+	/**
+	 * method for removing employee record
+	 * @param empid
+	 */
 
 	@DeleteMapping("/employee/{id}")
 	void deleteEmployee(@PathVariable("id") String empid) {
-
-		System.out.println(empid);
+		logger.log(Level.WARNING, "Employee deleted successfully");
 		employeeService.deleteEmployee(empid);
 
 	}

@@ -29,9 +29,18 @@ public class EmployeeService {
 
 	public void updateEmployee(Employee employee) {
 		employeeRepository.save(employee);
+
 	}
 
 	public void deleteEmployee(String id) {
 		employeeRepository.deleteById(id);
+	}
+
+	public EmployeeRepository getEmployeeRepository() {
+		return employeeRepository;
+	}
+
+	public void setEmployeeRepository(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
 	}
 }

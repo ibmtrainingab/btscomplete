@@ -32,6 +32,12 @@ public class DummyEmployeeRepository implements EmployeeRepository {
 	}
 
 	@Override
+	public Employee save(Employee employee) {
+		employee.setId("24398t84gb32oi");
+		return employee;
+	}
+
+	@Override
 	public <S extends Employee> S insert(S entity) {
 		// TODO Auto-generated method stub
 		return null;
@@ -61,11 +67,10 @@ public class DummyEmployeeRepository implements EmployeeRepository {
 		return null;
 	}
 
-	@Override
-	public <S extends Employee> S save(S entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	/*
+	 * @Override public <S extends Employee> S save(S entity) { // TODO
+	 * Auto-generated method stub return null; }
+	 */
 
 	@Override
 	public Optional<Employee> findById(String id) {
