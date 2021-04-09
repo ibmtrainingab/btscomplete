@@ -2,7 +2,6 @@ package com.ibm.Entity;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,7 +12,7 @@ public class Bug {
 	private String id;
 	@Size(min = 5, max = 100)
 	private String description;
-	@NotNull
+	//@NotNull
 	private STATUS status;
 	 @NotNull
 	private Date submittedOn;

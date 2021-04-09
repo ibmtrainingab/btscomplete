@@ -2,48 +2,150 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>BTS SYSTEMS</title>
-<script type="text/javascript" scr="index.js">
-	
-</script>
- <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
- 
-  <link rel="stylesheet" href="index.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>Create Bug</title>
 </head>
-<body class="jumbotron">
-<div class="nav">
-    <input type="checkbox" id="nav-check">
-    <div class="nav-header">
-      <div class="nav-title">
-        BugTrackingSystem
-      </div>
-    </div>
-    <div class="nav-btn">
-      <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-    
-    <div class="nav-links">
-      <a href="#1">Home</a>
-      <a href="#2">Create</a>
-      <a href="#3">Update</a>
-      <a href="#4">Search</a>
-      <a href="#5">Contact</a>
-    </div>
-  </div>
-<h3> Search Bug</h3>
-    <h7> Enter Bug ID :      
-        <input id="bugID">
-        <button id="Submit" onclick="generate_table()">Submit</button>  </h7>
-        <div id="padding"></div>
-        <p id="showData"></p>
-       <p id="notfound"></p>
-       <div id="button"> <button id="col">Download Bug Report</button></div> 
-	
+
+<script type="text/javascript">
+	function saveBug() {
+		function success(response) {
+			console.log(response);
+			return response.json();
+		}
+		function errorHandler(error) {
+			console.log(error);
+		}
+		const promise = fetch('/bug', {
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			body : JSON.stringify({
+				name : document.getElementById('bugName').value,
+				status : document.getElementById('Status').value,
+				priority : document.getElementById('Priority').value,
+				submittedOn : document.getElementById('date1').value,
+				module : document.getElementById('module').value,
+				projectId : document.getElementById('pid').value,
+				type : document.getElementById('type').value,
+			
+			})
+		});
+		promise.then(success);
+		promise.then(function(data){
+			console.log(data);
+		});
+		promise.catch(errorHandler);
+		alert("Bug has been created!");
+	}
+</script>
+<body>
+	<div class="nav">
+		<input type="checkbox" id="nav-check">
+		<div class="nav-header">
+			<div class="nav-title">BugTrackingSystem</div>
+		</div>
+		<div class="nav-btn">
+			<label for="nav-check"> <span></span> <span></span> <span></span>
+			</label>
+		</div>
+
+		<div class="nav-links">
+			<a href="home.html">Home</a> <a href="index.html">Create</a> <a
+				href="updateBug.html">Update</a> <a href="search.html">Search</a> <a
+				href="contact.html">Contact</a>
+		</div>
+	</div>
+	<h1>Create Bug</h1>
+	<div class="container">
+		<form>
+			<div class="row">
+				<div class="col-5">
+					<label class="lab" for="bname">Bug Name</label>
+				</div>
+				<div class="col-6">
+					<input type="text" id="bugName" name="bug_name"
+						placeholder="Enter bug name..">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label for="bugStatus">Enter Bug status :</label>
+				</div>
+				<div class="col-6">
+					<select id="Status">
+						<option value="option1">NEW</option>
+						<option value="option2">ASSIGNED</option>
+						<option value="option3">OPEN</option>
+						<option value="option4">FINISHED</option>
+						<option value="option4">NOT_A_BUG</option>
+						<option value="option4">DEFERRED</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label for="priority">Priority : </label>
+				</div>
+				<div class="col-6">
+					<select id="Priority">
+						<option value="option1">HIGH</option>
+						<option value="option2">MEDIUM</option>
+						<option value="option3">LOW</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label>Submitted On:</label>
+				</div>
+				<div class="col-6">
+					<input type="date" id="date1">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label>Module:</label>
+				</div>
+				<div class="col-6">
+					<input id="module" type="text">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label>Project ID:</label>
+				</div>
+				<div class="col-6">
+					<input id="pid" type="text">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
+					<label>Bug Type:</label>
+				</div>
+				<div class="col-6">
+					<select id="type">
+						<option value="option1">OPERATIONAL</option>
+						<option value="option2">FUNCTIONAL</option>
+						<option value="option3">RUNTIME</option>
+						<option value="option3">LOOP</option>
+					</select>
+				</div>
+
+			</div>
+			<div class="col-6">
+				<input type="submit" onclick="saveBug()" value="Submit">
+			</div>
+		</form>
+	</div>
+	<br>
+	<hr class="rounded">
+	<br>
 </body>
 </html>
