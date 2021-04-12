@@ -15,7 +15,59 @@
 <link rel="stylesheet" href="styles.css">
 
 </head>
+<script type="text/javascript">
+function updateBug() {
+    function success(response) {
+        console.log(response);
+        return response.json();
+    }
+    function errorHandler(error) {
+        console.log(error);
+    }
+    //Form Validation
+    //updateBug is the id of updateBug form
+    const updateBug = document.getElementById('updateBug');
+    if (!updateBug.checkValidity()) {
+        alert('form is invalid');
+        return;
+    }
 
+    let id = document.getElementById('bugId').value;
+
+    // const promise1 = fetch('/bug/' + id, {
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //         projectId: document.getElementById('projectId').value,
+    //         priority: document.getElementById('priority').value,
+    //         title: document.getElementById('title').value,
+    //         type: document.getElementById('type').value
+
+    //     })
+
+    // });
+
+    // promise1.then(success);
+    // promise1.then(function (data) {
+    //     console.log(data);
+    // })
+    // promise1.catch(errorHandler);
+
+
+    const promise = fetch(('/bug/' + id), {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            status: document.getElementById('bugStatus').value,
+            priority: document.getElementById('priority').value,
+            
+        })
+    });
+</script>
 <body>
 	<div class="nav">
 		<input type="checkbox" id="nav-check">
@@ -34,26 +86,7 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
-		function updateBug() {
-
-			let id = document.getElementById('bugid').value;
-			const promise = fetch('/bug/' + bid, {
-				method : 'PUT',
-				headers : {
-					'Content-Type' : 'application/json'
-				},
-				body : JSON.stringify({
-					id : document.getElementById('bugid').value,
-					status : document.getElementById('Status').value,
-					priority : document.getElementById('Priority').value
-
-				})
-			});
-
-			alert("Bug has been updated!");
-		}
-	</script>
+	
 
 	<h1>Update Bug</h1>
 	<form>
