@@ -19,7 +19,7 @@ public class Bug {
 	 @NotNull
 	private String name;
 	private String module;
-	 @NotNull
+    @NotNull
 	private String projectId;
 	private PRIORITY priority;
 	private SEVERITY severity;
