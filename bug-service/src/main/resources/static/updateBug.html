@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<head>
+
 <html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Update Bug</title>
@@ -16,57 +17,58 @@
 
 </head>
 <script type="text/javascript">
-function updateBug() {
-    function success(response) {
-        console.log(response);
-        return response.json();
-    }
-    function errorHandler(error) {
-        console.log(error);
-    }
-    //Form Validation
-    //updateBug is the id of updateBug form
-    const updateBug = document.getElementById('updateBug');
-    if (!updateBug.checkValidity()) {
-        alert('form is invalid');
-        return;
-    }
+	function updateBug() {
+		function success(response) {
+			console.log(response);
+			return response.json();
+		}
+		function errorHandler(error) {
+			console.log(error);
+		}
+		//Form Validation
+		//updateBug is the id of updateBug form
+		const updateBug = document.getElementById('updateBug');
+		if (!updateBug.checkValidity()) {
+			alert('form is invalid');
+			return;
+		}
 
-    let id = document.getElementById('bugId').value;
+		let id = document.getElementById('bugId').value;
 
-    // const promise1 = fetch('/bug/' + id, {
-    //     method: 'GET',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         projectId: document.getElementById('projectId').value,
-    //         priority: document.getElementById('priority').value,
-    //         title: document.getElementById('title').value,
-    //         type: document.getElementById('type').value
+		// const promise1 = fetch('/bug/' + id, {
+		//     method: 'GET',
+		//     headers: {
+		//         'Content-Type': 'application/json'
+		//     },
+		//     body: JSON.stringify({
+		//         projectId: document.getElementById('projectId').value,
+		//         priority: document.getElementById('priority').value,
+		//         title: document.getElementById('title').value,
+		//         type: document.getElementById('type').value
 
-    //     })
+		//     })
 
-    // });
+		// });
 
-    // promise1.then(success);
-    // promise1.then(function (data) {
-    //     console.log(data);
-    // })
-    // promise1.catch(errorHandler);
+		// promise1.then(success);
+		// promise1.then(function (data) {
+		//     console.log(data);
+		// })
+		// promise1.catch(errorHandler);
 
+		const promise = fetch(('/bug/' + id), {
+			method : 'PUT',
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			body : JSON.stringify({
+				id:document.getElementById('bugid').value,
+				status : document.getElementById('bugStatus').value,
+				priority : document.getElementById('priority').value,
 
-    const promise = fetch(('/bug/' + id), {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            status: document.getElementById('bugStatus').value,
-            priority: document.getElementById('priority').value,
-            
-        })
-    });
+			})
+		});
+	}
 </script>
 <body>
 	<div class="nav">
@@ -86,7 +88,7 @@ function updateBug() {
 		</div>
 	</div>
 
-	
+
 
 	<h1>Update Bug</h1>
 	<form>
@@ -125,12 +127,14 @@ function updateBug() {
 					<option value="MEDIUM">MEDIUM</option>
 					<option value="LOW">LOW</option>
 				</select>
+
 			</div>
+		</div>
 
 
-			<div class="col-6">
-				<input type="submit" onclick="updateBug()" value="Submit">
-			</div>
+		<div class="col-6">
+			<input type="submit" onclick="updateBug()" value="Submit">
+		</div>
 	</form>
 
 </body>
