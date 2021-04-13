@@ -2,7 +2,6 @@ package com.ibm.Entity;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -11,7 +10,7 @@ import org.springframework.data.annotation.Id;
 public class Bug {
 	@Id
 	private String id;
-	@Size(min = 5, max = 100)
+	//@Size(min = 5, max = 100)
 	private String description;
 	@NotNull
 	private STATUS status;
@@ -20,7 +19,7 @@ public class Bug {
 	 @NotNull
 	private String name;
 	private String module;
-	 @NotNull
+    @NotNull
 	private String projectId;
 	private PRIORITY priority;
 	private SEVERITY severity;
