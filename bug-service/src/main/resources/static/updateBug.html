@@ -27,11 +27,11 @@
 		}
 		//Form Validation
 		//updateBug is the id of updateBug form
-		//const updateBug = document.getElementById('updateBug');
-		//if (!updateBug.checkValidity()) {
-		//	alert('form is invalid');
-			//return;
-	//	}
+		const updateBug = document.getElementById('updateBug');
+		if (!updateBug.checkValidity()) {
+			alert('form is invalid');
+			return;
+	}
 
 		let id = document.getElementById('bugId').value;
 
@@ -43,17 +43,23 @@
 				'Content-Type' : 'application/json'
 			},
 			body : JSON.stringify({
-				//id:document.getElementById('bugId').value,
+				id:document.getElementById('bugId').value,
+				name : document.getElementById('bugName').value,
+				submittedOn : document.getElementById('date1').value,
+				projectId : document.getElementById('pid').value,
 				status : document.getElementById('Status').value,
-				priority : document.getElementById('Priority').value,
+				priority : document.getElementById('Priority').value
 
 			})
 		});
 		promise.then(success);
-	    promise.then(function (data) {
+	    promise.then(function(data) {
 	        console.log(data);
-	    })
-	    promise.catch(errorHandler);
+	    });
+	    promise.catch(function(error){
+	    	 console.log(error);
+	    });
+	   
 	
 	}
 </script>
@@ -69,8 +75,8 @@
 		</div>
 
 		<div class="nav-links">
-			<a href="home.html">Home</a> <a href="createBug.html">Create</a> <a
-				href="updateBug.html">Update</a> <a href="search.html">Search</a> <a
+			<a href="home.html">Home</a> <a href="index.html">Create</a> <a
+				href="updateBug.html">Update</a> <a href="searchBug.html">Search</a> <a
 				href="contact.html">Contact</a>
 		</div>
 	</div>
@@ -78,14 +84,31 @@
 
 
 	<h1>Update Bug</h1>
-	<form>
+	<form id="updateBug">
 		<div class="row">
 			<div class="col-5">
 				<label class="lab" for="bid">Bug ID</label>
 			</div>
 			<div class="col-6">
-				<input type="text" id="bugId" name="bug_id"
+				<input type="text" required id="bugId" name="bug_id"
 					placeholder="Enter bug ID..">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-5">
+				<label>Project ID:</label>
+			</div>
+			<div class="col-6">
+				<input id="pid" type="text">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-5">
+				<label class="lab" for="bname">Bug Name</label>
+			</div>
+			<div class="col-6">
+				<input type="text" id="bugName" name="bug_name"
+					placeholder="Enter bug name..">
 			</div>
 		</div>
 		<div class="row">
@@ -117,13 +140,21 @@
 
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-5">
+				<label>Submitted On:</label>
+			</div>
+			<div class="col-6">
+				<input type="date" id="date1">
+			</div>
+		</div>
 
 
 	</form>
-	
-		<div class="col-6">
-			<input type="submit" onclick="updateBug()" value="Submit">
-		</div>
+
+	<div class="col-6">
+		<input type="submit" onclick="updateBug()" value="Submit">
+	</div>
 
 </body>
 <br>
