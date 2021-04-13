@@ -4,72 +4,74 @@
 <meta charset="ISO-8859-1">
 <title>BTS SYSTEMS</title>
 <script type="text/javascript" src="searchBug.js">
-
+	
 </script>
- <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
- 
-  <link rel="stylesheet" href="searchBug.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="searchBug.css">
 </head>
 <body class="jumbotron">
-<div class="nav">
-    <input type="checkbox" id="nav-check">
-    <div class="nav-header">
-      <div class="nav-title">
-        BugTrackingSystem
-      </div>
-    </div>
-    <div class="nav-btn">
-      <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-    
-    <div class="nav-links">
-      <a href="#1">Home</a>
-      <a href="#2">Create</a>
-      <a href="#3">Update</a>
-      <a href="#4">Search</a>
-      <a href="#5">Contact</a>
-    </div>
-  </div>
-<h3> Search Bug</h3>
-    <h7> Enter Bug ID :      
-        <input id="bugID">
-        <button id="Submit" onclick="generate_onebug()">Submit</button> 
-        
-        <button id="Submit" onclick="generate_table()">Get all Bugs</button></h7>
-     <div id="padding"></div>
-      <div class="table-responsive">
-            <table class="stylishtable" style="border: 2px solid #000000; margin-top:50px">
-                <thead>
+	<div class="nav">
+		<input type="checkbox" id="nav-check">
+		<div class="nav-header">
+			<div class="nav-title">BugTrackingSystem</div>
+		</div>
+		<div class="nav-btn">
+			<label for="nav-check"> <span></span> <span></span> <span></span>
+			</label>
+		</div>
 
-                    <td scope="col" style="border: 2px solid #000000;"> Title </td>
-                    <td scope="col" style="border: 2px solid #000000;"> Description </td>
-                    <td scope="col" style="border: 2px solid #000000;"> Status </td>
-                   
-                  
-                    <td scope="col" style="border: 2px solid #000000;">Submitted On </td>
-                  
-                    <td scope="col" style="border: 2px solid #000000;"> Project ID</td>
-                   
+		<div class="nav-links">
+			<a href="home.html">Home</a> <a href="index.html">Create</a> <a
+				href="updateBug.html">Update</a> <a href="searchBug.html">Search</a>
+			<a href="contact.html">Contact</a>
+		</div>
+	</div>
+	<h3>Search Bug</h3>
+	<h7> Enter Bug ID :
+	<form id="searchform">
+		<input required id="bugID">
+	</form>
+	<button id="Submit" onclick="generate_onebug()">Submit</button>
+
+	<button id="Submit" onclick="generate_table()">Get all Bugs</button>
+	</h7>
+	<div id="padding"></div>
+	<div class="table-responsive">
+		<table class="stylishtable"
+			style="border: 2px solid #000000; margin-top: 50px">
+			<thead>
+
+				<td scope="col" style="border: 2px solid #000000;">Title</td>
+				<td scope="col" style="border: 2px solid #000000;">Description
+				</td>
+				<td scope="col" style="border: 2px solid #000000;">Status</td>
 
 
-                </thead>
-                <tbody id="bugsTable" style="border: 2px solid #000000">
+				<td scope="col" style="border: 2px solid #000000;">Submitted On
+				</td>
+
+				<td scope="col" style="border: 2px solid #000000;">Project ID</td>
 
 
-                </tbody>
 
-            </table>
-        </div>
-       
-        <div id="padding"></div>
-       
-       <div id="button"> <button id="col">Download Bug Report</button></div> 
-	
+			</thead>
+			<tbody id="bugsTable" style="border: 2px solid #000000">
+
+
+			</tbody>
+
+		</table>
+	</div>
+
+	<div id="padding"></div>
+
+	<div id="button">
+		<button id="col">Download Bug Report</button>
+	</div>
+
 </body>
 </html>

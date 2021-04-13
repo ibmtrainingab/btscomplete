@@ -10,16 +10,16 @@ import org.springframework.data.annotation.Id;
 public class Bug {
 	@Id
 	private String id;
-	@Size(min = 5, max = 100)
+	//@Size(min = 5, max = 100)
 	private String description;
-	//@NotNull
+	@NotNull
 	private STATUS status;
 	 @NotNull
 	private Date submittedOn;
 	 @NotNull
 	private String name;
 	private String module;
-	 @NotNull
+    @NotNull
 	private String projectId;
 	private PRIORITY priority;
 	private SEVERITY severity;
