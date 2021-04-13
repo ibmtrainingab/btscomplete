@@ -1,158 +1,82 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="styles.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Create Bug</title>
-</head>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Create and Update Bug</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="styles.css">
+	
+	</head>
+	
+	<body>
+		<div class="nav">
+			<input type="checkbox" id="nav-check">
+			<div class="nav-header">
+				<div class="nav-title">
+					BugTrackingSystem
+				</div>
+			</div>
+			<div class="nav-btn">
+				<label for="nav-check">
+					<span></span>
+					<span></span>
+					<span></span>
+				</label>
+			</div>
+	
+			<div class="nav-links">
+				<a href="home.html">Home</a>
+				<a href="index.html">Create</a>
+				<a href="updateBug.html">Update</a>
+				<a href="searchBug.html">Search</a>
+				<a href="contact.html">Contact</a>
+			</div>
+		</div>
 
-<script type="text/javascript">
-	function saveBug() {
-		function success(response) {
-			console.log(response);
-			return response.json();
-		}
-		function errorHandler(error) {
-			console.log(error);
-		}
-	const createBug=document.getElementById('createBug');
-	if(!createBug.checkvalidity()){
-			alert('form is invalid');
-			return ;
-		}
-		const promise = fetch('/bug', {
-			method : 'POST',
-			headers : {
-				'Content-Type' : 'application/json'
-			},
-			body : JSON.stringify({
-				name : document.getElementById('bugName').value,
-				status : document.getElementById('Status').value,
-				priority : document.getElementById('Priority').value,
-				submittedOn : document.getElementById('date1').value,
-				module : document.getElementById('module').value,
-				projectId : document.getElementById('pid').value,
-				type : document.getElementById('type').value
+		
+		<!-- WEB FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		
+		<!-- BOOTSTRAP -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- FONT AWESOME -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<!-- CUSTOM STYLING -->
+		<link href="css/styleshome.css" rel="stylesheet">
+		<!-- PRELOADER -->	
+		
 			
-			})
-		});
-		promise.then(success);
-		promise.then(function(data){
-			console.log(data);
-		});
-		promise.catch(function(error){
-			//console.log(error);
-		});
-	}
-</script>
+	</head>
+	
 <body>
-	<div class="nav">
-		<input type="checkbox" id="nav-check">
-		<div class="nav-header">
-			<div class="nav-title">BugTrackingSystem</div>
-		</div>
-		<div class="nav-btn">
-			<label for="nav-check"> <span></span> <span></span> <span></span>
-			</label>
-		</div>
-
-		<div class="nav-links">
-			<a href="home.html">Home</a> <a href="index.html">Create</a> <a
-				href="updateBug.html">Update</a> <a href="searchBug.html">Search</a>
-			<a href="contact.html">Contact</a>
-		</div>
-	</div>
-	<h1>Create Bug</h1>
-	<div class="container">
-		<form id="createBug">
-			<div class="row">
-				<div class="col-5">
-					<label class="lab" for="bname">Bug Name</label>
-				</div>
-				<div class="col-6">
-					<input type="text" required id="bugName" name="bug_name"
-						placeholder="Enter bug name..">
+	<!-- PRELOADER -->
+		<div id="loader-wrapper">
+			<div id="loader"><div class="sk-spinner sk-spinner-cube-grid"><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div><div class="sk-cube"></div></div></div>
+		</div>	
+		
+	<!-- HEADER -->
+		<section id="header">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-8">
+						<img class="logo" src="images/logo.png" />
+						<h1 class="white-text">Bug Tracking System</h1>
+						<h5 class="white-text">Here you can create,update and search bug</h5>
+						
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-5">
-					<label for="bugStatus ">Enter Bug status :</label>
-				</div>
-				<div class="col-6" >
-					<select id="Status">
-						<option value="NEW">NEW</option>
-						<option value="ASSIGNED">ASSIGNED</option>
-						<option value="OPEN">OPEN</option>
-						<option value="CLOSED">CLOSED</option>
-						<option value="VERIFIED">VERIFIED</option>
-						<option value="DEFERRED">DEFERRED</option>
-						<option value="NOT_A_BUG">NOT_A_BUG</option>
-					</select>
-				</div>
+			<div class="animation">
 			</div>
-			<div class="row">
-				<div class="col-5">
-					<label for="priority">Priority : </label>
-				</div>
-				<div class="col-6">
-					<select id="Priority">
-						<option value="HIGH">HIGH</option>
-						<option value="MEDIUM">MEDIUM</option>
-						<option value="LOW">LOW</option>
-					</select>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-5">
-					<label>Submitted On:</label>
-				</div>
-				<div class="col-6">
-					<input  type="date" required id="date1">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-5">
-					<label>Module:</label>
-				</div>
-				<div class="col-6">
-					<input id="module" type="text">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-5">
-					<label>Project ID:</label>
-				</div>
-				<div class="col-6">
-					<input required id="pid" type="text">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-5">
-					<label>Bug Type:</label>
-				</div>
-				<div class="col-6">
-					<select id="type">
-						<option value="OPERATIONAL">OPERATIONAL</option>
-						<option value="FUNCTIONAL">FUNCTIONAL</option>
-						<option value="RUNTIME">RUNTIME</option>
-						<option value="LOOP">LOOP</option>
-					</select>
-				</div>
-
-			</div>
-			<div class="col-6">
-				<input type="submit" onclick="saveBug()" value="Submit">
-			</div>
-		</form>
-	</div>
-	<br>
-	<hr class="rounded">
-	<br>
+		</section>
+                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/functions.js"></script>
 </body>
 </html>
