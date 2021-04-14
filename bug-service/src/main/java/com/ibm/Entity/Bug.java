@@ -70,6 +70,9 @@ public class Bug {
 	}
 
 	public void setSubmittedOn(Date submittedOn) {
+		if (submittedOn.compareTo(new Date()) > 0) {
+			throw new IllegalArgumentException("DOB cannot be future date");
+		}
 		this.submittedOn = submittedOn;
 	}
 
@@ -78,6 +81,12 @@ public class Bug {
 	}
 
 	public void setStatus(STATUS status) {
+		
+		if(status==STATUS.CLOSED) {
+			throw new IllegalArgumentException("Bug cannot be closed untill it is fixed");
+			
+			
+		}
 		this.status = status;
 	}
 
