@@ -15,24 +15,24 @@
 <script type="text/javascript">
 	function saveBug() {
 		//function success(response) {
-			//console.log(response);
-			//return response.json();
+		//console.log(response);
+		//return response.json();
 		//}
-		function success(response){
-			if(!response.ok){
+		function success(response) {
+			if (!response.ok) {
 				alert('error happned');
 				return;
 			}
-			
+
 		}
 		//function errorHandler(error) {
-			//console.log(error);
+		//console.log(error);
 		//}
-	const createBug=document.getElementById('createBug');
-	//if(!createBug.checkvalidity()){
-	//		alert('form is invalid');
-	//		return ;
-	//	}
+		const createBug = document.getElementById('createBug');
+		//if(!createBug.checkvalidity()){
+		//		alert('form is invalid');
+		//		return ;
+		//	}
 		const promise = fetch('/bug', {
 			method : 'POST',
 			headers : {
@@ -46,15 +46,15 @@
 				module : document.getElementById('module').value,
 				projectId : document.getElementById('pid').value,
 				type : document.getElementById('type').value
-			
+
 			})
 		});
 		promise.then(success);
 		//promise.then(function(data){
-			//console.log(data);
+		//console.log(data);
 		///});
 		//promise.catch(function(error){
-			//console.log(error);
+		//console.log(error);
 		////});
 	}
 </script>
@@ -91,7 +91,7 @@
 				<div class="col-5">
 					<label for="bugStatus ">Enter Bug status :</label>
 				</div>
-				<div class="col-6" >
+				<div class="col-6">
 					<select id="Status">
 						<option value="NEW">NEW</option>
 						<option value="ASSIGNED">ASSIGNED</option>
@@ -100,6 +100,15 @@
 						<option value="VERIFIED">VERIFIED</option>
 						<option value="DEFERRED">DEFERRED</option>
 						<option value="NOT_A_BUG">NOT_A_BUG</option>
+						<option value="REOPEN">REOPEN</option>
+						<option value="RETEST">RETEST</option>
+						<option value="REJECTED">REJECTED</option>
+						<option value="PENDING_RETEST">PENDING_RETEST</option>
+						<option value="DUPLICATE">DUPLICATE</option>
+						<option value="DEFECT">DEFECT</option>
+						<option value="WORK_IN_PROGRESS">WORK_IN_PROGRESS</option>
+						<option value="ISSUE">ISSUE</option>
+						<option value="FIXED">FIXED</option>
 					</select>
 				</div>
 			</div>
@@ -120,7 +129,7 @@
 					<label>Submitted On:</label>
 				</div>
 				<div class="col-6">
-					<input  type="date" required id="date1">
+					<input type="date" required id="date1">
 				</div>
 			</div>
 			<div class="row">

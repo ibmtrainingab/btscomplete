@@ -1,11 +1,10 @@
 package com.ibm.Service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
 import com.ibm.Entity.Bug;
-import com.ibm.Entity.STATUS;
 import com.ibm.repo.BugRepository;
 
 class BugServiceTest {
@@ -29,15 +28,15 @@ class BugServiceTest {
 	//	fail("Not yet implemented");
 	//}
 
-	@Test
-	void testUpdateBugStatus() {
-		BugService bugService = new BugService();
-		BugRepository dummyRepo = new DummyBugRepository();
-		bugService.setBugRepository(dummyRepo);
-		Bug bug = new Bug();
-		STATUS status = bugService.updateBugStatus(bug);
-		assertNotNull(status);
-		assertEquals(STATUS.VERIFIED, status);
-	}
+	//@Test
+	//void testUpdateBugStatus() {
+		//BugService bugService = new BugService();
+		//BugRepository dummyRepo = new DummyBugRepository();
+		//bugService.setBugRepository(dummyRepo);
+		//Bug bug = new Bug();
+		///STATUS status = bugService.updateBugStatus(bug);
+		//assertNotNull(status);
+		//assertEquals(STATUS.VERIFIED, status);
+	//}
 
 }
