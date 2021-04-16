@@ -1,12 +1,12 @@
 function generate_onebug(){
-	 let id = document.getElementById('bugID').value;
+	 let name = document.getElementById('bugName').value;
  
 //const searchBug=document.getElementById('searchBug');
 	//if(!searchBug.checkvalidity()){
 			//alert('form is invalid');
 			//return ;
 		//}
-		const promise = fetch('/bug/' + id);
+		const promise = fetch('/bug/' + name);
     promise.then(function (response) {
         return response.json();
     })

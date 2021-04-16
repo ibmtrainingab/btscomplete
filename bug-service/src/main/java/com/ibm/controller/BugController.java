@@ -74,9 +74,14 @@ public class BugController {
 	 * @return
 	 */
 
-	@GetMapping("/bug/{id}")
-	Optional<Bug> getBug(@PathVariable("id") String bugId) {
-		return bugService.getBug(bugId);
+//	@GetMapping("/bug/{id}")
+//	Optional<Bug> getBug(@PathVariable("id") String bugId) {
+//		return bugService.getBug(bugId);
+//	}
+	
+	@GetMapping("/bug/{name}")
+	Optional<Bug> getBugByName(@PathVariable("name") String bugName) {
+		return bugService.getBugByName(bugName);
 	}
 
 	/**
