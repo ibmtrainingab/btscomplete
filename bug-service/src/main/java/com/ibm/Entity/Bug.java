@@ -23,6 +23,7 @@ public class Bug {
 	private String projectId;
 	private PRIORITY priority;
 	private SEVERITY severity;
+	private Date ETA;
 	private TYPE type;
 
 	public String getName() {
@@ -112,6 +113,14 @@ public class Bug {
 
 	public void setType(TYPE type) {
 		this.type = type;
+	}
+
+	public Date getETA() {
+		return ETA;
+	}
+
+	public void setETA(Date eTA) {
+		ETA = eTA;
 	}
 
 }

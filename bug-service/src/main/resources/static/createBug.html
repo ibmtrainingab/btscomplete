@@ -83,7 +83,7 @@
 					<label class="lab" for="bname">Bug Name</label>
 				</div>
 				<div class="col-6">
-					<input type="text" required id="bugName" name="bug_name"
+					<input type="text" class="bn" required id="bugName" name="bug_name"
 						placeholder="Enter bug name..">
 				</div>
 			</div>
@@ -134,6 +134,14 @@
 			</div>
 			<div class="row">
 				<div class="col-5">
+					<label>ETA:</label>
+				</div>
+				<div class="col-6">
+					<input type="date" required id="date2">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-5">
 					<label>Module:</label>
 				</div>
 				<div class="col-6">
@@ -162,6 +170,14 @@
 				</div>
 
 			</div>
+			<div class="row">
+				<div class="col-5">
+					<label>description:</label>
+				</div>
+				<div class="col-6">
+					<input type="text" placeholder="Enter not more than 100 words" id="desc">
+				</div>
+			</div>
 			<div class="col-6">
 				<input type="submit" onclick="saveBug()" value="Submit">
 			</div>
@@ -170,5 +186,10 @@
 	<br>
 	<hr class="rounded">
 	<br>
+	<footer class="page-footer font-small blue">
+		<div class="footer-copyright text-center py-3">
+			<small>© 2021 Copyright: EDITH</small>
+		</div>
+	</footer>
 </body>
 </html>
