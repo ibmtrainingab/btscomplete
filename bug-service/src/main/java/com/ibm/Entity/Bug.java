@@ -23,6 +23,7 @@ public class Bug {
 	private String projectId;
 	private PRIORITY priority;
 	private SEVERITY severity;
+	private Date ETA;
 	private TYPE type;
 
 	public String getName() {
@@ -70,6 +71,9 @@ public class Bug {
 	}
 
 	public void setSubmittedOn(Date submittedOn) {
+		if (submittedOn.compareTo(new Date()) > 0) {
+			throw new IllegalArgumentException("DOB cannot be future date");
+		}
 		this.submittedOn = submittedOn;
 	}
 
@@ -78,6 +82,12 @@ public class Bug {
 	}
 
 	public void setStatus(STATUS status) {
+		
+		//if(status==STATUS.CLOSED) {
+			//throw new IllegalArgumentException("Bug cannot be closed untill it is fixed");
+			
+			
+		//}
 		this.status = status;
 	}
 
@@ -103,6 +113,14 @@ public class Bug {
 
 	public void setType(TYPE type) {
 		this.type = type;
+	}
+
+	public Date getETA() {
+		return ETA;
+	}
+
+	public void setETA(Date eTA) {
+		ETA = eTA;
 	}
 
 }

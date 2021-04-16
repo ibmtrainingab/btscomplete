@@ -18,13 +18,28 @@
 </head>
 <script type="text/javascript">
 	function updateBug() {
-		function success(response) {
-			console.log(response);
-			return response.json();
+		//function success(response) {
+			//console.log(response);
+			//return response.json();
+		//}
+		function success(response){
+			if(!response.ok){
+				alert('error happned');
+				return;
+			}//return response.json();
+			
+			else if(response.ok){
+				alert('Bug is updated');
+				console.log(response);
+				return response.json();
+			}
+			
+			
 		}
-		function errorHandler(error) {
-			console.log(error);
-		}
+		
+		//function errorHandler(error) {
+			//console.log(error);
+		//}
 		//Form Validation
 		//updateBug is the id of updateBug form
 		const updateBug = document.getElementById('updateBug');
@@ -53,12 +68,13 @@
 			})
 		});
 		promise.then(success);
-	    promise.then(function(data) {
-	        console.log(data);
-	    });
-	    promise.catch(function(error){
-	    	 console.log(error);
-	    });
+	   // promise.then(function(data) {
+	       //console.log(data);
+	   // });
+	    //promise.catch(function(error){
+	    	// console.log(error);
+	   /// });
+	   
 	   
 	
 	}
@@ -75,7 +91,7 @@
 		</div>
 
 		<div class="nav-links">
-			<a href="home.html">Home</a> <a href="index.html">Create</a> <a
+			<a href="index.html">Home</a> <a href="createBug.html">Create</a> <a
 				href="updateBug.html">Update</a> <a href="searchBug.html">Search</a> <a
 				href="contact.html">Contact</a>
 		</div>
@@ -118,12 +134,21 @@
 			<div class="col-6">
 				<select id="Status">
 					<option value="NEW">NEW</option>
-					<option value="ASSIGNED">ASSIGNED</option>
-					<option value="OPEN">OPEN</option>
-					<option value="CLOSED">CLOSED</option>
-					<option value="VERIFIED">VERIFIED</option>
-					<option value="DEFERRED">DEFERRED</option>
-					<option value="NOT_A_BUG">NOT_A_BUG</option>
+						<option value="ASSIGNED">ASSIGNED</option>
+						<option value="OPEN">OPEN</option>
+						<option value="CLOSED">CLOSED</option>
+						<option value="VERIFIED">VERIFIED</option>
+						<option value="DEFERRED">DEFERRED</option>
+						<option value="NOT_A_BUG">NOT_A_BUG</option>
+						<option value="REOPEN">REOPEN</option>
+						<option value="RETEST">RETEST</option>
+						<option value="REJECTED">REJECTED</option>
+						<option value="PENDING_RETEST">PENDING_RETEST</option>
+						<option value="DUPLICATE">DUPLICATE</option>
+						<option value="DEFECT">DEFECT</option>
+						<option value="WORK_IN_PROGRESS">WORK_IN_PROGRESS</option>
+						<option value="ISSUE">ISSUE</option>
+						<option value="FIXED">FIXED</option>
 				</select>
 			</div>
 		</div>
