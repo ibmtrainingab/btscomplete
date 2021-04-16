@@ -1,5 +1,6 @@
 function generate_onebug(){
 	 let id = document.getElementById('bugID').value;
+ 
 //const searchBug=document.getElementById('searchBug');
 	//if(!searchBug.checkvalidity()){
 			//alert('form is invalid');
@@ -13,7 +14,9 @@ function generate_onebug(){
 	
 	console.log(bug);
 	
+	
             const table = document.getElementById('bugsTable');
+            bugsTable.innerHTML=' ';
             const row = document.createElement('tr');
             const nameColumn = document.createElement('td');
             const descriptionColumn = document.createElement('td');
@@ -46,6 +49,7 @@ function generate_table() {
         .then(function (bugs) {
             console.log(bugs);
             const table = document.getElementById('bugsTable');
+			bugsTable.innerHTML=' ';
             for (let index = 0; index < bugs.length; index++) {
                 console.log(bugs[index]);
                 const currentBug = bugs[index];
